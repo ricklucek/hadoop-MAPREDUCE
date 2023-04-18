@@ -6,22 +6,25 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.util.Objects;
-public class MaxMinWritable implements WritableComparable<MaxMinWritable>{
+
+public class CombineWritable implements WritableComparable<CombineWritable>{
 
     private double Max;
 
     private double Min;
 
-    private float Average;
+    private double somaCusto;
 
-    public MaxMinWritable() {
+    private int somaQtd;
+
+    public CombineWritable() {
     }
 
-    public MaxMinWritable(double max, double min, float average) {
+    public CombineWritable(double max, double min, double somaCusto, int somaQtd) {
         this.Max = max;
         this.Min = min;
-        this.Average = average;
-
+        this.somaCusto = somaCusto;
+        this.somaQtd = somaQtd;
     }
 
     public double getMax() {
@@ -40,16 +43,24 @@ public class MaxMinWritable implements WritableComparable<MaxMinWritable>{
         Min = min;
     }
 
-    public float getAverage() {
-        return Average;
+    public double getSomaCusto() {
+        return somaCusto;
     }
 
-    public void setAverage(float average) {
-        Average = average;
+    public void setSomaCusto(double somaCusto) {
+        this.somaCusto = somaCusto;
+    }
+
+    public int getSomaQtd() {
+        return somaQtd;
+    }
+
+    public void setSomaQtd(int somaQtd) {
+        this.somaQtd = somaQtd;
     }
 
     @Override
-    public int compareTo(MaxMinWritable o) {
+    public int compareTo(CombineWritable o) {
         // Manter essa implementação independentemente da classe e dos atributos
         return Integer.compare(o.hashCode(), this.hashCode());
     }
@@ -57,36 +68,30 @@ public class MaxMinWritable implements WritableComparable<MaxMinWritable>{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof MaxMinWritable)) return false;
-        MaxMinWritable that = (MaxMinWritable) o;
-        return Double.compare(that.Max, Max) == 0 && Double.compare(that.Min, Min) == 0 && Float.compare(that.Average, Average) == 0;
+        if (!(o instanceof CombineWritable)) return false;
+        CombineWritable that = (CombineWritable) o;
+        return Double.compare(that.Max, Max) == 0 && Double.compare(that.Min, Min) == 0 && Double.compare(that.somaCusto, somaCusto) == 0 && somaQtd == that.somaQtd;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Max, Min, Average);
+        return Objects.hash(Max, Min, somaCusto, somaQtd);
     }
 
     @Override
     public void write(DataOutput dataOutput) throws IOException {
         dataOutput.writeDouble(Max);
         dataOutput.writeDouble(Min);
-        dataOutput.writeFloat(Average);
+        dataOutput.writeDouble(somaCusto);
+        dataOutput.writeInt(somaQtd);
     }
 
     @Override
     public void readFields(DataInput dataInput) throws IOException {
         Max = dataInput.readDouble();
         Min = dataInput.readDouble();
-        Average = dataInput.readFloat();
-    }
-
-    @Override
-    public String toString() {
-        return "MaxMinWritable{" +
-                "Max=" + Max +
-                ", Min=" + Min +
-                ", Average=" + Average +
-                '}';
+        somaCusto = dataInput.readDouble();
+        somaQtd = dataInput.readInt();
     }
 }
+

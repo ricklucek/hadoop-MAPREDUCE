@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 
-public class TypeYearWritable implements WritableComparable<PriceQuantityWritable> {
+public class TypeYearWritable implements WritableComparable<TypeYearWritable> {
 
 
     private String commodity;
@@ -40,7 +40,7 @@ public class TypeYearWritable implements WritableComparable<PriceQuantityWritabl
 
 
     @Override
-    public int compareTo(PriceQuantityWritable o) {
+    public int compareTo(TypeYearWritable o) {
         // Manter essa implementação independentemente da classe e dos atributos
         return Integer.compare(o.hashCode(), this.hashCode());
     }

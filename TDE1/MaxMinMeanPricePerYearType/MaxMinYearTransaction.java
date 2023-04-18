@@ -1,9 +1,5 @@
 package TDE1.MaxMinMeanPricePerYearType;
 
-import TDE1.MaxMinMeanPricePerYearType.MaxMinWritable;
-import TDE1.MaxMinMeanPricePerYearType.PriceQuantityWritable;
-import TDE1.MaxMinMeanPricePerYearType.TypeYearWritable;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.*;
@@ -50,7 +46,6 @@ public class MaxMinYearTransaction {
         //Definição dos tipos de saida (map)
         j.setMapOutputKeyClass(TypeYearWritable.class);
         j.setMapOutputValueClass(PriceQuantityWritable.class);
-
 
         //Reduce
         j.setOutputKeyClass(TypeYearWritable.class);
@@ -104,10 +99,10 @@ public class MaxMinYearTransaction {
     }
 
     public static class Reduce extends Reducer<TypeYearWritable, PriceQuantityWritable, TypeYearWritable, MaxMinWritable>{
-        public void reduce(TypeYearWritable key, Iterable<PriceQuantityWritable> values, Context con)
+        public void reduce(TypeYearWritable key, Iterable<PriceQuantityWritable> v, Context con)
                 throws IOException, InterruptedException {
 
-            // Soma as ocorrencias e encontra os valores máximos e mínimos
+            // Encontra a média
 
             double somaCusto = 0;
             int somaQtd = 0;
@@ -115,7 +110,7 @@ public class MaxMinYearTransaction {
             double Max = 0;
             double Min = 99999;
 
-            for (PriceQuantityWritable o : values){
+            for (PriceQuantityWritable o : v){
                 somaCusto += o.getCommodityusd();
                 somaQtd += o.getQtd();
 
