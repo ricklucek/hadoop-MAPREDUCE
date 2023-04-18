@@ -1,0 +1,5 @@
+CommodityYearWritable{commodity='611790', year='2016'}	54493.0
+CommodityYearWritable{commodity='611790', year='2015'}	384195.0
+CommodityYearWritable{commodity='611790', year='2014'}	1914363.857142857
+CommodityYearWritable{commodity='611790', year='2013'}	1409429.5833333333
+CommodityYearWritable{commodity='611790', year='2012'}	1598624.0

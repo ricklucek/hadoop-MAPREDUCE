@@ -1,0 +1,5 @@
+CommodityYearFlowWritable{commodity='350400', year='1999', flow='Import'}	1.3647017E7
+CommodityYearFlowWritable{commodity='350400', year='1998', flow='Import'}	2.1343502E7
+CommodityYearFlowWritable{commodity='350400', year='1995', flow='Import'}	8621194.0
+CommodityYearFlowWritable{commodity='350400', year='1994', flow='Import'}	3177117.0
+CommodityYearFlowWritable{commodity='350400', year='1991', flow='Import'}	1205106.0

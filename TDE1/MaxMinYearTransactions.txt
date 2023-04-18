@@ -1,0 +1,5 @@
+TypeYearWritable{commodity='611790', year='2016'}	MaxMinWritable{Max=73564.0, Min=28703.0, Average=54493.0}
+TypeYearWritable{commodity='611790', year='2015'}	MaxMinWritable{Max=1709216.0, Min=107.0, Average=384195.0}
+TypeYearWritable{commodity='611790', year='2014'}	MaxMinWritable{Max=1.1040951E7, Min=10150.0, Average=1914363.9}
+TypeYearWritable{commodity='611790', year='2013'}	MaxMinWritable{Max=6465222.0, Min=106.0, Average=1409429.6}
+TypeYearWritable{commodity='611790', year='2012'}	MaxMinWritable{Max=4580738.0, Min=4327.0, Average=1598624.0}

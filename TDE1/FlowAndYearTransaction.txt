@@ -1,0 +1,5 @@
+FlowAndYearWritable{flowType='Re-Export', year='2016'}	2298
+FlowAndYearWritable{flowType='Re-Export', year='2015'}	2646
+FlowAndYearWritable{flowType='Re-Export', year='2014'}	2806
+FlowAndYearWritable{flowType='Re-Export', year='2013'}	2225
+FlowAndYearWritable{flowType='Re-Export', year='2012'}	2345
